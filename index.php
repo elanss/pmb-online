@@ -7,7 +7,7 @@ $sesi_username			= isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
 
 if ($sesi_username != NULL || !empty($sesi_username)) {
 
-	$identitas_sekolah 	= getSekolah();
+	$identitas_universitas 	= getUniversitas();
 
 	$p 					= isset($_GET['p']) ? $_GET['p'] : "";
 	
@@ -44,7 +44,7 @@ if ($sesi_username != NULL || !empty($sesi_username)) {
 	} elseif ($p == "t_prestasi") {
 		$nav 	= "Tabel Prestasi";
 		$ambil 	= "$p.php";
-	} elseif ($p == "t_skolah") {
+	} elseif ($p == "t_sekolah") {
 		$nav 	= "Tabel Sekolah Asal";
 		$ambil 	= "$p.php";
 
@@ -75,7 +75,7 @@ if ($sesi_username != NULL || !empty($sesi_username)) {
 
 <head>
 	<meta charset="utf-8"/>
-	<title>Aplikasi PMB Online</title>
+	<title>:: PMB Online System Universitas Dian Nuswantoro ::</title>
 	
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
 	<!--[if lt IE 9]>
@@ -145,19 +145,19 @@ if ($sesi_username != NULL || !empty($sesi_username)) {
 
 	<header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="index.php">Aplikasi PMB UDINUS</a></h1>
-			<h2 class="section_title"><?php echo $identitas_sekolah[0]; ?>, Tahun Ajaran <?php echo $identitas_sekolah[2]; ?></h2>
-			<h6 class="alamat">Alamat Sekolah : <?php echo $identitas_sekolah[1]; ?></h6>
+			<h1 class="site_title"><a href="index.php">PMB Online v.3.1</a></h1>
+			<h2 class="section_title"><?php echo $identitas_universitas[0]; ?>, Tahun Ajaran <?php echo $identitas_universitas[2]; ?></h2>
+			<h6 class="alamat">Alamat  : <?php echo $identitas_universitas[1]; ?></h6>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p><span style="font-weight: normal; text-decoration:none">Log As : </span>"<?php echo $_SESSION['username']; ?>" &nbsp;|&nbsp; <a href="?p=logout" onclick="return konfirmasi('LOG OUT');">Logout</a></p>
+			<p><span style="font-weight: normal; text-decoration:none">Login Sebagai : </span>"<?php echo $_SESSION['username']; ?>" &nbsp;|&nbsp; <a href="?p=logout" onclick="return konfirmasi('KELUAR');">Keluar</a></p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
-			<article class="breadcrumbs"><a href="index.php">Aplikasi PSB</a> <div class="breadcrumb_divider"></div> <a class="current"><?php echo $nav; ?></a></article>
+			<article class="breadcrumbs"><a href="index.php">Aplikasi PMB Online</a> <div class="breadcrumb_divider"></div> <a class="current"><?php echo $nav; ?></a></article>
 		</div>
 	</section><!-- end of secondary bar -->
 	
@@ -183,7 +183,7 @@ if ($sesi_username != NULL || !empty($sesi_username)) {
 			<li class="icn_profile"><a href="?p=t_pkj">Tabel Pekerjaan</a></li>
 			<li class="icn_profile"><a href="?p=t_penddk">Tabel Pendidikan</a></li>
 			<li class="icn_profile"><a href="?p=t_prestasi">Tabel Tingkat Prestasi</a></li>
-			<li class="icn_profile"><a href="?p=t_skolah">Tabel Sekolah Asal</a></li>
+			<li class="icn_profile"><a href="?p=t_sekolah">Tabel Sekolah Asal</a></li>
 		</ul>
 		<h3>Tools</h3>
 		<ul class="toggle">
@@ -196,14 +196,14 @@ if ($sesi_username != NULL || !empty($sesi_username)) {
 		</ul>
 		<h3>Admin</h3>
 		<ul class="toggle">
-			<li class="icn_settings"><a href="?p=f_editadmin">Setting</a></li>
+			<li class="icn_settings"><a href="?p=f_editadmin">Setelan</a></li>
 			<!--<li class="icn_security"><a href="#">Security</a></li>-->
-			<li class="icn_jump_back"><a href="?p=logout" onclick="return konfirmasi('LOG OUT');">Logout</a></li>
+			<li class="icn_jump_back"><a href="?p=logout" onclick="return konfirmasi('KELUAR');">Keluar</a></li>
 		</ul>
 			
 		<footer>
 			<hr />
-			<p><strong>Aplikasi PSB &copy; <a href="http://nur-akhwan.blogspot.com/p/akhwansoft-buat-website.html" target="_blank" title="Jasa pembuatan website sekolah, instansi, dll. Sistem Informasi Sekolah, dll">Nur Akhwan</a></strong></p>
+			<p><strong>PMB Online &copy; Zygate Arrive Fianto</strong></p>
 			<p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>
  		</footer>
 	</aside><!-- end of sidebar -->
